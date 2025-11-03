@@ -1,0 +1,19 @@
+import React, { useEffect, useState } from 'react'
+import {db} from "../../lib/firebase";
+import { getDoc,doc } from 'firebase/firestore';
+const useFetchHolidays = (id:string) => {
+  const [holidays,setHolidays] = useState<any>([]);
+  useEffect(()=>{
+    const cleanUp = async ()=>{
+      if(id){
+
+        const marked_holidays:any = (await getDoc(doc(db,"holidays",id))).data();
+        setHolidays(marked_holidays["holidays"]);
+      }
+      };
+      return ()=>{cleanUp()};
+  },[]);
+  return [holidays,setHolidays];
+}
+
+export default useFetchHolidays

@@ -1,7 +1,9 @@
-import React, { createContext ,useState} from 'react'
+import React, { createContext ,useContext,useState} from 'react'
 const userContext = createContext(null);
 
 export default userContext;
+
+export const ContextUser = () => useContext(userContext);
 
 const ContextProvider = ({children,...props}:React.PropsWithChildren)=>{
     const [user,setUser] = useState<any>(null);
@@ -12,7 +14,7 @@ const ContextProvider = ({children,...props}:React.PropsWithChildren)=>{
         isLoggedIn,
         setIsLoggedIn
     }
-    return <userContext.Provider {...args}>
+    return <userContext.Provider value={args}>
         {children}
     </userContext.Provider>
 }
