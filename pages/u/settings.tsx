@@ -65,7 +65,7 @@ const settings = () => {
         <button onClick={async ()=>{
           await signOut(auth);
           navigate("/login");
-          setUser({});
+          setUser(null);
           setIsLoggedIn(false);
           toast.success("Logged Out Successfully!");
         }} className='w-full'>Logout from this device</button>
