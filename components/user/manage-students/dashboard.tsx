@@ -27,6 +27,8 @@ const dashboard = () => {
     };
   }, []);
   return (
+    <>
+    <title>Manage Students</title>
     <div className="max-w-[1200px] gap-5 flex flex-col items-center md:shadow-lg rounded mx-auto container my-12 p-5">
       <div className="w-full flex flex-col gap-5">
         <div className="ml-auto flex justify-between md:flex-row flex-col gap-4 items-center md:w-[60%] w-full">
@@ -40,19 +42,19 @@ const dashboard = () => {
           <button
             className="whitespace-nowrap"
             onClick={() => navigate("/add-department")}
-          >
+            >
             Download Attendance
           </button>
           <button
             className="whitespace-nowrap"
             onClick={() => navigate("/add-department")}
-          >
+            >
             Download Credentials
           </button>
           <button
             className="whitespace-nowrap"
             onClick={() => navigate("/add-department")}
-          >
+            >
             Mark Attendance 
           </button>
           <button
@@ -67,16 +69,17 @@ const dashboard = () => {
         <div className="text-2xl font-semibold">Student's List</div>
         {loaded ? (
           <Table
-            cols={["#", "name", "action"]}
-            edit_url={"/view-attendance"}
-            data={data} 
-            button_text="View Attendance"
+          cols={["#", "name", "action"]}
+          edit_url={"/view-attendance"}
+          data={data} 
+          button_text="View Attendance"
           />
         ) : (
           <Loading />
         )}
       </div>
     </div>
+        </>
   );
 };
 

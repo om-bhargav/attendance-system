@@ -51,6 +51,8 @@ const addTeacher = () => {
   };
 
   return (
+    <>
+    <title>Add Teacher</title>
     <div className="max-w-[1200px] gap-2 flex flex-col items-center md:shadow-lg rounded mx-auto container my-12 p-5">
       <div className="text-2xl font-bold">Add Teacher</div>
       <form action={addTeacher} className="grid gap-3 w-full p-5">
@@ -69,7 +71,7 @@ const addTeacher = () => {
             name="email"
             required
             placeholder="Teacher Email"
-          />
+            />
         </div>
         <div className="grid">
           <label className="text-lg font-semibold">
@@ -80,7 +82,7 @@ const addTeacher = () => {
             name="phone"
             required
             placeholder="Teacher Contact No."
-          />
+            />
         </div>
         <div className="grid">
           <label className="text-lg font-semibold">
@@ -90,7 +92,7 @@ const addTeacher = () => {
             required
             name="group"
             className="text-md border rounded p-2 outline-none"
-          >
+            >
             {departments.map((item: any) => {
               return <option value={item.id}>{item.name}</option>;
             })}
@@ -99,6 +101,7 @@ const addTeacher = () => {
         <SubmitButton text="Add Teacher" />
       </form>
     </div>
+            </>
   );
 };
 

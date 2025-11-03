@@ -36,6 +36,8 @@ const addDepartment = () => {
   };
 
   return (
+    <>
+    <title>Add Department</title>
     <div className="max-w-[1200px] gap-2 flex flex-col items-center md:shadow-lg rounded mx-auto container my-12 p-5">
       <div className="text-2xl font-bold">Add Group</div>
       <form action={addGroup} className="grid gap-3 w-full p-5">
@@ -46,7 +48,7 @@ const addDepartment = () => {
             name="group"
             required
             placeholder="Enter Name Of Your Group"
-          />
+            />
         </div>
         <div className="grid gap-3">
           {inputs.length === 0 ? (
@@ -65,7 +67,7 @@ const addDepartment = () => {
                     placeholder="Enter Subject Name"
                     required
                     value={item.value}
-                  />
+                    />
                   <button type="button" onClick={() => removeSubject(item.id)}>
                     <FaMinus />
                   </button>
@@ -80,6 +82,7 @@ const addDepartment = () => {
         <SubmitButton text="Add Group" />
       </form>
     </div>
+          </>
   );
 };
 

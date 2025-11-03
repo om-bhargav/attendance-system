@@ -19,6 +19,8 @@ const ManageDepartments = () => {
     return ()=>{cleanUp()};
   },[]);
   return (
+    <>
+    <title>Manage Departments</title>
     <div className='max-w-[1200px] gap-5 flex flex-col items-center md:shadow-lg rounded mx-auto container my-12 p-5'>
       <div className='w-full flex md:flex-row flex-col gap-5 items-center justify-between'>
         <div className='text-2xl font-semibold'>Manage Groups</div>
@@ -30,6 +32,7 @@ const ManageDepartments = () => {
         </div>
       {loading ? <Loading/>:<Table cols={["#","name","action"]} edit_url={"/edit-department"} button_text="Edit Details" data={data}/>}
     </div>
+    </>
   )
 }
 

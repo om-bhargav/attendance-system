@@ -8,6 +8,8 @@ function dashboard() {
   const [holidays,setHolidays] = useFetchHolidays(user.college_id);
 
   return (
+    <>
+    <title>Presentify - Dashboard</title>
        <div className='flex flex-col p-5 my-5 justify-center items-start container lg:flex-row max-w-[1200px] gap-5 mx-auto'>
        <div className='max-w-[800px] w-full flex flex-col gap-5'>
           <div className='border border-gray-200 rounded p-3 shadow-lg text-2xl text-center flex flex-col lg:flex-row gap-5 items-center'><img src="/default.png" className='h-20 rounded'/>Welcome, {user.name}</div>
@@ -28,6 +30,7 @@ function dashboard() {
        </div>
        <Calender holidays={holidays}/>
        </div>
+    </>
   )
 }
 

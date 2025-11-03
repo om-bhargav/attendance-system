@@ -29,6 +29,8 @@ const settings = () => {
     }
   };
   return (
+    <>
+    <title>Presentify - Settings</title>
     <div className='my-10 p-4 flex gap-5 flex-col items-center container mx-auto max-w-[1000px] lg:border rounded border-gray-400'>
         <div className='font-semibold text-xl'>Account Settings</div>
         <div><img src="/default.png" className='h-50 rounded-full'/></div>
@@ -68,6 +70,7 @@ const settings = () => {
           toast.success("Logged Out Successfully!");
         }} className='w-full'>Logout from this device</button>
     </div>
+        </>
   )
 }
 

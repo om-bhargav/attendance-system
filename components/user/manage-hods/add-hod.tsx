@@ -51,6 +51,8 @@ const addHOD = () => {
   };
 
   return (
+    <>
+    <title>Add HOD</title>
     <div className="max-w-[1200px] gap-2 flex flex-col items-center md:shadow-lg rounded mx-auto container my-12 p-5">
       <div className="text-2xl font-bold">Add HOD</div>
       <form action={addHOD} className="grid gap-3 w-full p-5">
@@ -65,7 +67,7 @@ const addHOD = () => {
             name="email"
             required
             placeholder="HOD Email"
-          />
+            />
         </div>
         <div className="grid">
           <label className="text-lg font-semibold">
@@ -86,7 +88,7 @@ const addHOD = () => {
             required
             name="group"
             className="text-md border rounded p-2 outline-none"
-          >
+            >
             {departments.map((item: any) => {
               return <option value={item.id}>{item.name}</option>;
             })}
@@ -95,6 +97,7 @@ const addHOD = () => {
         <SubmitButton text="Add HOD" />
       </form>
     </div>
+            </>
   );
 };
 

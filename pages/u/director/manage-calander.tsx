@@ -26,6 +26,8 @@ const manageCalander = () => {
     toast.success("Calender Updated");
   };
   return (
+    <>
+    <title>Manage Calender</title>
     <div className="p-5 mx-auto max-w-[1200px] flex flex-col gap-5 items-center h-auto my-10">
       <div className="text-4xl font-semibold">Calender Of {year}</div>
       <div className="w-full gap-5 rounded grid lg:grid-cols-3">
@@ -37,6 +39,7 @@ const manageCalander = () => {
         {loading ? <ButtonLoader/>:"Mark Holidays"}
         </button>
     </div>
+        </>
   );
 };
 
