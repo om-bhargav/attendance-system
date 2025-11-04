@@ -5,11 +5,11 @@ const useFetchHolidays = (id:string) => {
   const [holidays,setHolidays] = useState<any>([]);
   useEffect(()=>{
     const cleanUp = async ()=>{
-      if(id){
+        if(id){
 
-        const marked_holidays:any = (await getDoc(doc(db,"holidays",id))).data();
-        setHolidays(marked_holidays["holidays"]);
-      }
+          const marked_holidays:any = (await getDoc(doc(db,"holidays",id))).data();
+          setHolidays(marked_holidays["holidays"]);
+        }
       };
       return ()=>{cleanUp()};
   },[]);

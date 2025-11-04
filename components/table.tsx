@@ -7,13 +7,13 @@ const table = ({ cols, data,edit_url,button_text }: any) => {
       <table>
         <thead>
           <tr>
-            {cols.map((e: string) => (
-              <th className="uppercase">{e}</th>
+            {cols.map((e: string,ind) => (
+              <th key={ind} className="uppercase">{e}</th>
             ))}
           </tr>
         </thead>
         <tbody>
-          {data.map((item:any,ind:number)=><tr>
+          {data.map((item:any,ind:number)=><tr key={ind}>
             <td>{ind+1}</td>
             <td>{item.name}</td>
             <td><button onClick={()=>navigate(`${edit_url}/${item.id}`)}>{button_text}</button></td>
