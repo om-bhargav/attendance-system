@@ -47,7 +47,7 @@ const dashboard = () => {
             </button>
             <button
               className="whitespace-nowrap"
-              onClick={() => navigate("/add-department")}
+              onClick={() => navigate("/download-credentials/teacher")}
             >
               Download Credentials
             </button>

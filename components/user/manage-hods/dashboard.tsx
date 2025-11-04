@@ -20,7 +20,7 @@ const dashboard = () => {
             newEnteries.push({...item.data(),id:item.id});
           }
         })
-        setData(newEnteries);
+        setData(newEnteries); 
     };
     return () => {
       cleanUp();
@@ -47,7 +47,7 @@ const dashboard = () => {
           </button>
           <button
             className="whitespace-nowrap"
-            onClick={() => navigate("/add-department")}
+            onClick={() => navigate("/download-credentials/hod")}
             >
             Download Credentials
           </button>

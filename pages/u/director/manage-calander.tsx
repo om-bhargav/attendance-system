@@ -11,7 +11,7 @@ const manageCalander = () => {
   const year = (new Date()).getFullYear();
   const {user}:any = ContextUser();
   const [loading,setLoading] = useState(false);
-  const [holidays,setHolidays] = useFetchHolidays(user.id);
+  const [holidays,setHolidays] = useFetchHolidays(user.college_id);
   const clickHandler = (date:string) => {
     if(holidays.includes(date)){
       setHolidays([...holidays.filter((item:string)=>item!=date)]);

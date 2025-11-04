@@ -22,7 +22,7 @@ const downloadCredentials = () => {
   },[]);
   return (
     <div className="max-w-[1200px] flex-1 gap-2 flex flex-col items-center md:shadow-lg rounded mx-auto container my-12 p-5">
-      <div className="text-2xl font-bold capitalize">{type} Credentials</div>
+      <div className="text-2xl font-bold capitalize">{type}s Credentials</div>
       <div className="w-full flex-col flex gap-5 justify-center">
         <table>
           <thead>

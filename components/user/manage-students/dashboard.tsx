@@ -25,7 +25,7 @@ const dashboard = () => {
     return () => {
       cleanUp();
     };
-  }, []);
+  }, []); 
   return (
     <>
     <title>Manage Students</title>
@@ -41,13 +41,13 @@ const dashboard = () => {
         <div className="grid md:grid-cols-2 w-full gap-3">
           <button
             className="whitespace-nowrap"
-            onClick={() => navigate("/add-department")}
+            onClick={() => navigate("/download-credentials/student")}
             >
             Download Attendance
           </button>
           <button
             className="whitespace-nowrap"
-            onClick={() => navigate("/add-department")}
+            onClick={() => navigate("/download-credentials/student")}
             >
             Download Credentials
           </button>
