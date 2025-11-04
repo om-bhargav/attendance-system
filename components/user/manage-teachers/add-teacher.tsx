@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { FaMinus } from "react-icons/fa";
 import { v4 } from "uuid";
 import SubmitButton from "../../../components/SubmitButton";
 import toast from "react-hot-toast";

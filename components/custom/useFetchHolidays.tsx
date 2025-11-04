@@ -9,7 +9,6 @@ const useFetchHolidays = (id:string) => {
 
         const marked_holidays:any = (await getDoc(doc(db,"holidays",id))).data();
         setHolidays(marked_holidays["holidays"]);
-        console.log(id,marked_holidays);
       }
       };
       return ()=>{cleanUp()};

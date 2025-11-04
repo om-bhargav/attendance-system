@@ -13,11 +13,11 @@ import MarkAttendance from "../components/user/mark-attendance";
 const directorRoutes = (
   <Fragment>
     <Route element={<UserLayout />}>
-      <Route path="/dashboard" element={<DirectorDashboard />}></Route>
-      <Route path="/manage-calander" element={<ManageCalander />}></Route>
-      <Route path="/view-attendance/:id" element={<ViewAttendance />}></Route>
-      <Route path="/settings" element={<Settings />}></Route>
-      <Route path="/mark-attendance/:type" element={<MarkAttendance />}></Route>
+      <Route path="dashboard" element={<DirectorDashboard />}></Route>
+      <Route path="manage-calander" element={<ManageCalander />}></Route>
+      <Route path="view-attendance/:id" element={<ViewAttendance />}></Route>
+      <Route path="settings" element={<Settings />}></Route>
+      <Route path="mark-attendance/:type" element={<MarkAttendance />}></Route>
       {ManageStudents}
       {ManageDepartments}
       {ManageTeachers}

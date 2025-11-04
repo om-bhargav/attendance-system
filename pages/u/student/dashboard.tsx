@@ -5,7 +5,7 @@ import {ContextUser} from "../../../context/userContext";
 import useFetchHolidays from "../../../components/custom/useFetchHolidays";
 function dashboard() {
   const {user}:any = ContextUser();
-  const [holidays,setHolidays] = useFetchHolidays(user.id);
+  const [holidays,setHolidays] = useFetchHolidays(user.college_id);
 
   return (
     <>
