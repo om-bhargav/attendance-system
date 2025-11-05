@@ -30,10 +30,6 @@ function App() {
   }, []);
   return loading ? (
     <>
-    <Routes>
-
-    <Route path="dashboard" element={<div>Loading...</div>}></Route>
-    </Routes>
     <Loading />
     </>
   ) : (
