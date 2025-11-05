@@ -18,6 +18,7 @@ const basicRoutes = () => {
         <Route path="download-credentials/:type" element={<DownloadCredentials />}></Route>
         <Route path="mark-attendance/:type" element={<MarkAttendance />}></Route>
         <Route path="download-attendance" element={<DownloadAttendance />}></Route>
+        <Route path="dashboard" element={<div>Loading...</div>}></Route>
       </Route>
     </Fragment>
   );
