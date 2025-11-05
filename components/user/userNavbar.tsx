@@ -11,7 +11,7 @@ function userNavbar() {
       <ul className="hidden md:flex gap-8">
         <li>
           <Link
-            className="border-orange-500 hover:border-b-3 duration-100"
+            className="border-orange-500 hover:border-b-3 duration-100 outline-none"
             to="/dashboard"
           >
             Home
@@ -20,7 +20,7 @@ function userNavbar() {
         {user.role !== "student" && (
           <li>
             <Link
-              className="border-orange-500 hover:border-b-3 duration-100"
+              className="border-orange-500 hover:border-b-3 duration-100 outline-none"
               to="/manage-students"
             >
               Users
@@ -31,7 +31,7 @@ function userNavbar() {
           <Fragment>
             <li>
               <Link
-                className="border-orange-500 hover:border-b-3 duration-100"
+                className="border-orange-500 hover:border-b-3 duration-100 outline-none"
                 to="/manage-calander"
               >
                 Calender
@@ -39,7 +39,7 @@ function userNavbar() {
             </li>
             <li>
               <Link
-                className="border-orange-500 hover:border-b-3 duration-100"
+                className="border-orange-500 hover:border-b-3 duration-100 outline-none"
                 to="/manage-departments"
               >
                 Groups
@@ -49,7 +49,7 @@ function userNavbar() {
         )}
         <li>
           <Link
-            className="border-orange-500 hover:border-b-3 duration-100"
+            className="border-orange-500 hover:border-b-3 duration-100 outline-none"
             to="/settings"
           >
             Settings
