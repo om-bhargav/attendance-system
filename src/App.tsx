@@ -29,7 +29,10 @@ function App() {
     return () => cleaner();
   }, []);
   return loading ? (
+    <>
+    <Route path="dashboard" element={<div>Loading...</div>}></Route>
     <Loading />
+    </>
   ) : (
     <Routes>
       {BasicRoutes()}
