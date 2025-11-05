@@ -9,15 +9,17 @@ import { setDoc, doc, getDoc } from "firebase/firestore";
 import { ContextUser } from "../../../context/userContext";
 import { secondaryAuth } from "../../../lib/firebase";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
- 
+import SectionLoading from "../../../components/SectionLoading";
 const addStudent = () => {
   const navigate = useNavigate();
   const { user }: any = ContextUser();
   const [departments, setDepartments] = useState([]);
+  const [loaded,setLoaded] = useState<Boolean>(false);
   useEffect(() => {
     const cleanUp = async () => {
       const deps: any = (await getDoc(doc(db, "departments", user.id))).data();
       setDepartments(deps.departments);
+      setLoaded(true);
     };
     return () => {
       cleanUp();
@@ -40,7 +42,8 @@ const addStudent = () => {
       group,
       password,
       college_id:user.college_id,
-      role:"student"
+      role:"student",
+      attendance:{}
     });
     await signOut(secondaryAuth);
   }
@@ -57,7 +60,9 @@ const addStudent = () => {
     <title>Add Student</title>
     <div className="max-w-[1200px] gap-2 flex flex-col items-center md:shadow-lg rounded mx-auto container my-12 p-5">
       <div className="text-2xl font-bold">Add Student</div>
-      <form action={addStudent} className="grid gap-3 w-full p-5">
+      {
+        loaded ? 
+        <form action={addStudent} className="grid gap-3 w-full p-5">
         <div className="grid">
           <label className="text-lg font-semibold">
             Enter Name Of Student:
@@ -77,7 +82,7 @@ const addStudent = () => {
         </div>
         <div className="grid">
           <label className="text-lg font-semibold">
-            Enter Phone No. Of Student:
+            Enter Phone No. Of Student: 
           </label>
           <input
             type="text"
@@ -101,7 +106,8 @@ const addStudent = () => {
           </select>
         </div>
         <SubmitButton text="Add Student" />
-      </form>
+      </form>:<SectionLoading/>
+      }
     </div>
             </>
   );

@@ -6,6 +6,7 @@ import Login from "../pages/login";
 import Signup from "../pages/signup";
 import DownloadCredentials from "../components/user/download-credentials";
 import MarkAttendance from "../components/user/mark-attendance";
+import DownloadAttendance from "../components/download-attendance";
 const basicRoutes = () => {
   return (
     <Fragment>
@@ -16,6 +17,7 @@ const basicRoutes = () => {
         <Route path="signup" element={<Signup />}></Route>
         <Route path="download-credentials/:type" element={<DownloadCredentials />}></Route>
         <Route path="mark-attendance/:type" element={<MarkAttendance />}></Route>
+        <Route path="download-attendance" element={<DownloadAttendance />}></Route>
       </Route>
     </Fragment>
   );

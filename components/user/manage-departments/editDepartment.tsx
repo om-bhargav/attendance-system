@@ -8,6 +8,7 @@ import { ContextUser } from "../../../context/userContext";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";
 import SubmitButton from "../../SubmitButton";
+import SectionLoading from "../../SectionLoading";
 const editDepartment = () => {
   const navigate = useNavigate();
   const { user }: any = ContextUser();
@@ -15,6 +16,7 @@ const editDepartment = () => {
   const { id } = useParams();
   const [departments, setDepartments] = useState([]);
   const [inputs, setInputs] = useState<any>([]);
+  const [loaded,setLoaded] = useState<Boolean>(false);
   useEffect(() => {
     const cleanUp = async () => {
       if (user) {
@@ -27,6 +29,7 @@ const editDepartment = () => {
         )[0];
         setInputs(department.subjects);
         setName(department.name);
+        setLoaded(true);
       }
     };
     return () => {
@@ -58,6 +61,7 @@ const editDepartment = () => {
       <title>Edit Department</title>
       <div className="max-w-[1200px] gap-2 flex flex-col items-center md:shadow-lg rounded mx-auto container my-12 p-5">
         <div className="text-2xl font-bold">Edit Group</div>
+    {loaded ? 
         <form action={updateGroup} className="grid gap-3 w-full p-5">
           <div className="grid">
             <label className="text-lg font-semibold">
@@ -104,7 +108,7 @@ const editDepartment = () => {
             </button>
           </div>
           <SubmitButton text="Update Details" />
-        </form>
+        </form>:<SectionLoading/>}
       </div>
     </>
   );

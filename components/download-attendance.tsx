@@ -2,26 +2,26 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Download } from "lucide-react";
 import { collection, doc, getDocs } from "firebase/firestore";
-import { db } from "../../lib/firebase";
-import SectionLoading from "../SectionLoading";
+import { db } from "../lib/firebase";
+import SectionLoading from "./SectionLoading";
 import { useRef } from "react";
 import {jsPDF} from "jspdf";
 import html2canvas from "html2canvas";
-import { ContextUser } from "../../context/userContext";
-import toast from "react-hot-toast";
-const downloadCredentials = () => {
+import { ContextUser } from "../context/userContext";
+const downloadAttendanceReport = () => {
   const {user}:any = ContextUser();
   const { type } = useParams();
   const [data,setData] = useState([]);
   const [loaded,setLoaded] = useState<Boolean>(false);
   const elementRef = useRef(null);
+
   useEffect(()=>{
     const cleanUp = async () => {
         const users = await getDocs(collection(db,"users"));
         const newData:any = [];
         users.docs.forEach((item)=>{
             const item_data = item.data();
-            if(item_data.role===type && item_data.college_id===user.college_id){
+            if(item_data.role==="student" && item_data.college_id===user.college_id){
                 newData.push(item_data);
             }
         });
@@ -61,27 +61,22 @@ const downloadCredentials = () => {
     }
 
     pdf.save(`${type}s-credentials.pdf`);
-        toast.success("Pdf Downloded Successfully!");
   };
   return (
     <div className="max-w-[1200px] flex-1 gap-2 flex flex-col md:shadow-lg rounded mx-auto container my-12 p-5">
-      {
-
-       <title>{`${type}s Credentials`.toUpperCase()}</title>
-      }
+      <title>{type}'s Credentials</title>
       <button type="button" onClick={generatePDF} className="self-end"><Download/></button>
       <div ref={elementRef} className="w-full px-12 mx-auto flex flex-col gap-4 items-center justify-center">
 
-      <div className="text-2xl font-bold capitalize">{`${type}s`} Credentials</div>
+      <div className="text-2xl font-bold capitalize">Students Attendance Report</div>
       {
         loaded ? 
-        <div className="mx-5 w-full">
+        <div className="mx-auto">
         <table className="border-collapse border-black border-1 w-full text-black!">
-          <thead className="bg-orange-500!">
+          <thead className="bg-black!">
             <tr>
               <th className="rounded-none! border-r border-b px-4 py-2">#</th>
               <th className="rounded-none! border-r border-b px-4 py-2">Email</th>
-              <th className="rounded-none! border-b px-4 py-2">Password</th>
             </tr>
           </thead>
           <tbody>
@@ -103,4 +98,4 @@ const downloadCredentials = () => {
   );
 };
 
-export default downloadCredentials;
+export default downloadAttendanceReport;

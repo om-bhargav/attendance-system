@@ -9,15 +9,17 @@ import { setDoc, doc, getDoc } from "firebase/firestore";
 import { ContextUser } from "../../../context/userContext";
 import { secondaryAuth } from "../../../lib/firebase";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
-
+import SectionLoading from "../../../components/SectionLoading";
 const addHOD = () => {
   const navigate = useNavigate();
   const { user }: any = ContextUser();
   const [departments, setDepartments] = useState([]);
+  const [loaded,setLoaded] = useState<Boolean>(false);
   useEffect(() => {
     const cleanUp = async () => {
       const deps: any = (await getDoc(doc(db, "departments", user.id))).data();
       setDepartments(deps.departments);
+      setLoaded(true);
     };
     return () => {
       cleanUp();
@@ -40,6 +42,7 @@ const addHOD = () => {
         password,
         college_id: user.college_id,
         role: "hod",
+      attendance:{}
       });
       await signOut(secondaryAuth);
     } catch (err: any) {
@@ -51,11 +54,13 @@ const addHOD = () => {
   };
 
   return (
-    <>
+    <> 
     <title>Add HOD</title>
     <div className="max-w-[1200px] gap-2 flex flex-col items-center md:shadow-lg rounded mx-auto container my-12 p-5">
       <div className="text-2xl font-bold">Add HOD</div>
-      <form action={addHOD} className="grid gap-3 w-full p-5">
+      {
+        loaded ?
+        <form action={addHOD} className="grid gap-3 w-full p-5">
         <div className="grid">
           <label className="text-lg font-semibold">Enter Name Of HOD:</label>
           <input type="text" name="name" required placeholder="HOD Name" />
@@ -78,7 +83,7 @@ const addHOD = () => {
             name="phone"
             required
             placeholder="HOD Contact No."
-          />
+            />
         </div>
         <div className="grid">
           <label className="text-lg font-semibold">
@@ -95,9 +100,9 @@ const addHOD = () => {
           </select>
         </div>
         <SubmitButton text="Add HOD" />
-      </form>
+      </form>:<SectionLoading/>}
     </div>
-            </>
+    </>
   );
 };
 

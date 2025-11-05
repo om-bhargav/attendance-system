@@ -3,9 +3,10 @@ import {FaArrowRight} from "react-icons/fa";
 import Calender from "../../../components/calender"
 import {ContextUser} from "../../../context/userContext";
 import useFetchHolidays from "../../../components/custom/useFetchHolidays";
+import { Link } from 'react-router-dom';
 function dashboard() {
   const {user}:any = ContextUser();
-  const [holidays,setHolidays] = useFetchHolidays(user.college_id);
+  const [holidays,setHolidays,isLoaded] = useFetchHolidays(user.college_id);
 
   return (
     <>
@@ -15,17 +16,31 @@ function dashboard() {
           <div className='border border-gray-200 rounded p-3 shadow-lg text-2xl text-center flex flex-col lg:flex-row gap-5 items-center'><img src="/default.png" className='h-20 rounded'/>Welcome, {user.name}</div>
           <div className='border border-gray-200 grid text-center gap-5 rounded py-5 p-3 shadow-lg'>
           <div className='text-2xl font-semibold'>Important Links</div>
-          <div className='gap-5 grid text-2xl'>
+          <div className='gap-5 grid md:grid-cols-2 min-h-[300px] text-2xl'>
+              <Link className='grid' to="/download-credentials/student">
               <div className='duration-200 rounded hover:text-white flex justify-center items-center hover:bg-orange-500 border p-3'>
-                <div className='flex gap-2 items-center'>Manage Students <FaArrowRight/></div>
+                <div className='flex gap-2 items-center'>Download Credentials <FaArrowRight/></div>
               </div>
+              </Link>
+              <Link className='grid' to="/mark-student-attendance">
+              <div className='duration-200 rounded hover:text-white flex justify-center items-center hover:bg-orange-500 border p-3'>
+                <div className='flex gap-2 items-center'>Mark Attendance <FaArrowRight/></div>
+              </div>
+              </Link>
+              <Link className='grid' to="/manage-students">
               <div className='duration-200 rounded hover:text-white flex justify-center items-center hover:bg-orange-500 border p-3'>
                 <div className='flex gap-2 items-center'>Manage Profile <FaArrowRight/></div>
               </div>
+              </Link>
+              <Link className='grid' to="/settings">
+              <div className='duration-200 rounded hover:text-white flex justify-center items-center hover:bg-orange-500 border p-3'>
+                <div className='flex gap-2 items-center'>Manage Profile <FaArrowRight/></div>
+              </div>
+              </Link>
           </div>
           </div>
        </div>
-       <Calender holidays={holidays}/>
+       <Calender loaded={isLoaded} holidays={holidays}/>
        </div>
     </>
   )
