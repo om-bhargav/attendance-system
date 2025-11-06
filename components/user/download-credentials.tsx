@@ -17,19 +17,22 @@ const downloadCredentials = () => {
   const elementRef = useRef(null);
   useEffect(()=>{
     const cleanUp = async () => {
+      if(user){
+
         const users = await getDocs(collection(db,"users"));
         const newData:any = [];
         users.docs.forEach((item)=>{
-            const item_data = item.data();
-            if(item_data.role===type && item_data.college_id===user.college_id){
-                newData.push(item_data);
-            }
+          const item_data = item.data();
+          if(item_data.role===type && item_data.college_id===user.college_id){
+            newData.push(item_data);
+          }
         });
         setData(newData);
         setLoaded(true);
-    }
+      }
+    }  
     return ()=>{cleanUp()};
-  },[]);
+  },[user]);
   const generatePDF = async () => {
     const element = elementRef.current;
     if (!element) return;
@@ -77,7 +80,7 @@ const downloadCredentials = () => {
         loaded ? 
         <div className="mx-5 w-full">
         <table className="border-collapse border-black border-1 w-full text-black!">
-          <thead className="bg-orange-500!">
+          <thead className="bg-black!">
             <tr>
               <th className="rounded-none! border-r border-b px-4 py-2">#</th>
               <th className="rounded-none! border-r border-b px-4 py-2">Email</th>

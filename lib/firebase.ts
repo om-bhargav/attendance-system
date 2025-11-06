@@ -3,12 +3,12 @@ import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 
 const firebaseConfig = {
-  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
-  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
-  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
-  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
-  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
-  appId: import.meta.env.VITE_FIREBASE_APP_ID
+  apiKey: "AIzaSyAw9mGfJ2aZz-374OPbkkYRfzeDclcdEtU",
+  authDomain: "presentify-40a34.firebaseapp.com",
+  projectId: "presentify-40a34",
+  storageBucket: "presentify-40a34.firebasestorage.app",
+  messagingSenderId: "269471031363",
+  appId: "1:269471031363:web:d27a667bb5c5d6a656f4f6"
 };
 
 
