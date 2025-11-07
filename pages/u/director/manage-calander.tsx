@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Calender from "../../../components/calender";
 import {getDoc,doc} from "firebase/firestore";
-import {db} from "../../../lib/firebase";
+import {db} from "./../../../src/firebase";
 import {ContextUser} from "../../../context/userContext"
 import { setDoc } from "firebase/firestore";
 import ButtonLoader from "../../../components/ButtonLoader";

@@ -4,8 +4,7 @@ import useFetchDepartments from "../custom/useFetchDepartment";
 import { ContextUser } from "../../context/userContext";
 import MarkAttendanceTable from "../MarkAttendanceTable";
 import SubmitButton from "../SubmitButton";
-import { arrayUnion, doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "../../lib/firebase";
+import { db } from "../../src/firebase";
 import Calender from "../calender";
 import toast from "react-hot-toast";
 const viewStudentAttendance = ({id,user,loaded}:any) => {

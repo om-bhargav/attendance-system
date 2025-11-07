@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { FaMinus } from "react-icons/fa";
 import { v4 } from "uuid";
 import { doc, getDoc, setDoc } from "firebase/firestore";
-import { db } from "../../../lib/firebase";
+import { db } from "../../../src/firebase";
 import { ContextUser } from "../../../context/userContext";
 import { useParams } from "react-router-dom";
 import toast from "react-hot-toast";

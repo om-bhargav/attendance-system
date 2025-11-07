@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Table from "../../../components/table";
 import { useNavigate } from "react-router-dom";
 import { getDocs, collection } from "firebase/firestore";
-import { db } from "../../../lib/firebase";
+import { db } from "../../../src/firebase";
 import { ContextUser } from "../../../context/userContext";
 import Loading from "../../../components/Loading";
 const dashboard = () => {

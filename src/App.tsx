@@ -7,7 +7,7 @@ import TeacherRoutes from "../routes/teacher-routes";
 import HODRoutes from "../routes/hod-routes";
 import StudentRoutes from "../routes/student-routes";
 import { onAuthStateChanged } from "firebase/auth";
-import { auth, db } from "../lib/firebase";
+import { auth, db } from "./firebase";
 import { getDoc, doc } from "firebase/firestore";
 import Loading from "../components/Loading";
 import { useNavigate } from "react-router-dom";

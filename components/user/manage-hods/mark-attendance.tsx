@@ -5,7 +5,7 @@ import MarkAttendanceTable from "../../MarkAttendanceTable";
 import SubmitButton from "../../SubmitButton";
 import SectionLoading from "../../SectionLoading";
 import { getDoc,setDoc,doc,arrayUnion } from "firebase/firestore";
-import { db } from "../../../lib/firebase";
+import { db } from "../../../src/firebase";
 import toast from "react-hot-toast";
 const markAttendance = () => {
   const [users, setUsers, usersLoaded, setUsersLoaded] =useFetchUsers("hod");

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Download } from "lucide-react";
 import { collection, doc, getDocs } from "firebase/firestore";
-import { db } from "../../lib/firebase";
+import { db } from "../../src/firebase";
 import SectionLoading from "../SectionLoading";
 import { useRef } from "react";
 import {jsPDF} from "jspdf";

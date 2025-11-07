@@ -1,5 +1,5 @@
 import React, { ErrorInfo } from "react";
-import { auth,db } from "../lib/firebase";
+import { auth,db } from "../src/firebase";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,

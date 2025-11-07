@@ -4,7 +4,7 @@ import { FaMinus } from "react-icons/fa";
 import { v4 } from "uuid";
 import SubmitButton from "../../../components/SubmitButton";
 import toast from "react-hot-toast";
-import { db } from "../../../lib/firebase";
+import { db } from "../../../src/firebase";
 import { setDoc, doc, arrayUnion } from "firebase/firestore";
 import { ContextUser } from "../../../context/userContext";
 const addDepartment = () => {

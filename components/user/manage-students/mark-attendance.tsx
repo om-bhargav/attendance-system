@@ -6,7 +6,7 @@ import MarkAttendanceTable from "../../MarkAttendanceTable";
 import SubmitButton from "../../SubmitButton";
 import { arrayUnion, doc, getDoc, setDoc } from "firebase/firestore";
 import toast from "react-hot-toast";
-import { db } from "../../../lib/firebase";
+import { db } from "../../../src/firebase";
 const markAttendance = () => {
   const { user }: any = ContextUser();
   const [users, setUsers, usersLoaded, setUsersLoaded] =

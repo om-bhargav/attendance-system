@@ -1,6 +1,6 @@
 import { EmailAuthProvider, reauthenticateWithCredential, signOut} from "firebase/auth";
 import toast from "react-hot-toast";
-import {auth, db} from "../../lib/firebase";
+import {auth, db} from "../../src/firebase";
 import {ContextUser} from "../../context/userContext";
 import {useNavigate} from "react-router-dom";
 import {doc,updateDoc} from "firebase/firestore";

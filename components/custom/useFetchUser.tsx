@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import {db} from "../../lib/firebase";
+import {db} from '../../src/firebase';
 import { getDoc,doc } from 'firebase/firestore';
 const useFetchUser = (id:string) => {
   const [user,setUser] = useState<any>({});

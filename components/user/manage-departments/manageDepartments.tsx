@@ -3,7 +3,7 @@ import Table from "../../../components/table";
 import { useNavigate } from "react-router-dom"; 
 import Loading from "../../Loading";
 import { getDoc,doc } from "firebase/firestore";
-import { db } from "../../../lib/firebase";
+import { db } from "../../../src/firebase";
 import { ContextUser } from "../../../context/userContext";
 const ManageDepartments = () => {
   const navigate = useNavigate();

@@ -3,10 +3,10 @@ import { useNavigate } from "react-router-dom";
 import { v4 } from "uuid";
 import SubmitButton from "../../../components/SubmitButton";
 import toast from "react-hot-toast"; 
-import { db } from "../../../lib/firebase";
+import { db } from "../../../src/firebase";
 import { setDoc, doc, getDoc } from "firebase/firestore";
 import { ContextUser } from "../../../context/userContext";
-import { secondaryAuth } from "../../../lib/firebase";
+import { secondaryAuth } from "../../../src/firebase";
 import { createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import SectionLoading from "../../../components/SectionLoading";
 const addTeacher = () => {
