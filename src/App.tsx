@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
-import BasicRoutes from "../routes/basic-routes";
-import { ContextUser } from "../context/userContext";
+import BasicRoutes from "./routes/basic-routes";
+import { ContextUser } from "./context/userContext";
 import { Route, Routes } from "react-router-dom";
-import DirectorRoutes from "../routes/director-routes";
-import TeacherRoutes from "../routes/teacher-routes";
-import HODRoutes from "../routes/hod-routes";
-import StudentRoutes from "../routes/student-routes";
+import DirectorRoutes from "./routes/director-routes";
+import TeacherRoutes from "./routes/teacher-routes";
+import HODRoutes from "./routes/hod-routes";
+import StudentRoutes from "./routes/student-routes";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "./firebase";
 import { getDoc, doc } from "firebase/firestore";
-import Loading from "../components/Loading";
+import Loading from "./components/Loading";
 import { useNavigate } from "react-router-dom";
 function App() {
   const { isLoggedIn, setUser, setIsLoggedIn, user }: any = ContextUser();
