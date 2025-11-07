@@ -18,7 +18,7 @@ const editDepartment = () => {
   const [loaded,setLoaded] = useState<Boolean>(false);
   useEffect(() => {
     const cleanUp = async () => {
-      if (user) {
+      if (user.id) {
         const response: any = (
           await getDoc(doc(db, "departments", user.id))
         ).data();
@@ -31,10 +31,8 @@ const editDepartment = () => {
         setLoaded(true);
       }
     };
-    return () => {
       cleanUp();
-    };
-  }, []);
+  }, [user.id]);
   const onChangeHandler = (id: string, subject: string) => {
     const newInputs = inputs.map((item: any) => {
       return item.id === id ? { ...item, value: subject } : item;

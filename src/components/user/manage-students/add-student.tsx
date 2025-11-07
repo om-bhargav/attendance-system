@@ -7,7 +7,7 @@ import { v4 } from "uuid";
 import { ContextUser } from "../../../context/userContext";
 import { db, secondaryAuth } from "../../../firebase";
 import SectionLoading from "../../SectionLoading";
-import SubmitButton from "../../SubmitButton";
+import SubmitButton from "../../SubmitButton"; 
 const addStudent = () => {
   const navigate = useNavigate();
   const { user }: any = ContextUser();
@@ -15,14 +15,15 @@ const addStudent = () => {
   const [loaded,setLoaded] = useState<Boolean>(false);
   useEffect(() => {
     const cleanUp = async () => {
-      const deps: any = (await getDoc(doc(db, "departments", user.id))).data();
-      setDepartments(deps.departments);
-      setLoaded(true);
-    };
-    return () => {
+      if(user.id){
+
+        const deps: any = (await getDoc(doc(db, "departments", user.id))).data();
+        setDepartments(deps.departments);
+        setLoaded(true);
+      };
+    }
       cleanUp();
-    };
-  }, []);
+  }, [user.id]);
   const addStudent = async (form_data: any) => {
     const { name, email, phone, group } = Object.fromEntries(form_data);
     const password = v4();

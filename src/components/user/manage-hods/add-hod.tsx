@@ -15,14 +15,15 @@ const addHOD = () => {
   const [loaded,setLoaded] = useState<Boolean>(false);
   useEffect(() => {
     const cleanUp = async () => {
-      const deps: any = (await getDoc(doc(db, "departments", user.id))).data();
-      setDepartments(deps.departments);
-      setLoaded(true);
-    };
-    return () => {
+      if(user.id){
+
+        const deps: any = (await getDoc(doc(db, "departments", user.id))).data();
+        setDepartments(deps.departments);
+        setLoaded(true);
+      }
+      };
       cleanUp();
-    };
-  }, []);
+  }, [user.id]);
   const addHOD = async (form_data: any) => {
     const { name, email, phone, group } = Object.fromEntries(form_data);
     const password = v4();

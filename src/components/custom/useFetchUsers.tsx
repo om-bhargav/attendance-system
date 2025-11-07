@@ -6,9 +6,10 @@ const useFetchUsers = (type:string) => {
     const [loaded,setLoaded] = useState<any>(false);
     useEffect(()=>{
         const cleanUp = async () => {
-            const data = await getDocs(collection(db,"users"));
-            const users_data:any = [];
-            data.docs.forEach((item)=>{
+            if(type){
+                const data = await getDocs(collection(db,"users"));
+                const users_data:any = [];
+                data.docs.forEach((item)=>{
                 const details:any = {...item.data(),id:item.id};
                 if(details?.role===type){
                     users_data.push(details);
@@ -16,9 +17,10 @@ const useFetchUsers = (type:string) => {
             });
             setUsers(users_data);
             setLoaded(true);
+        }
         };
-        return ()=>{cleanUp()};
-    },[]);
+        cleanUp();
+    },[type]);
     return [users,setUsers,loaded,setLoaded];
 }
 

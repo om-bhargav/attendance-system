@@ -13,8 +13,8 @@ const useFetchUser = (id:string) => {
             setLoaded(true);
         }
     };
-    return ()=>{cleanUp()};
-  },[]);
+    cleanUp();
+  },[id]);
   return [user,setUser,loaded,setLoaded];
 }
 

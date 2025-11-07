@@ -12,16 +12,18 @@ const ManageDepartments = () => {
   const [searchedData,setSearchedData] = useState([]);
   useEffect(()=>{
     const cleanUp = async () => {
-      const groups:any = (await getDoc(doc(db,"departments",user.id))).data();
-      if(groups?.departments){
-
-        setData(groups.departments);
-        setSearchedData(groups.departments);
+      if(user.id){
+        const groups:any = (await getDoc(doc(db,"departments",user.id))).data();
+        if(groups?.departments){
+          
+          setData(groups.departments);
+          setSearchedData(groups.departments);
+        }
+        setLoaded(true);
       }
-      setLoaded(true);
     };
-    return ()=>{cleanUp()};
-  },[]);
+    cleanUp();
+  },[user.id]);
   const onChangeHandler = (e:any) => {
     setSearchedData(data.filter((item:any)=>item.name.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())));
   };

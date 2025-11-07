@@ -7,6 +7,7 @@ import {Link} from "react-router-dom";
 function dashboard() {
   const {user}:any = ContextUser();
   const [holidays,setHolidays,isLoaded] = useFetchHolidays(user.college_id);
+
   return (
     <>
     <title>Presentify - Dashboard</title>

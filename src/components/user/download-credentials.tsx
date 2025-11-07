@@ -16,7 +16,7 @@ const downloadCredentials = () => {
   const elementRef = useRef(null);
   useEffect(()=>{
     const cleanUp = async () => {
-      if(user){
+      if(user.college_id){
 
         const users = await getDocs(collection(db,"users"));
         const newData:any = [];
@@ -30,8 +30,8 @@ const downloadCredentials = () => {
         setLoaded(true);
       }
     }  
-    return ()=>{cleanUp()};
-  },[user]);
+    cleanUp();
+  },[user.college_id]);
   const generatePDF = async () => {
     const element = elementRef.current;
     if (!element) return;

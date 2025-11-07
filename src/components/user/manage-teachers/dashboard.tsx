@@ -12,22 +12,23 @@ const dashboard = () => {
    const [searchedData,setSearchedData] = useState([]);
   useEffect(() => {
     const cleanUp = async () => { 
-      const response: any = await getDocs(collection(db, "users"));
-      const newEnteries: any = [];
-      response.docs.forEach((item: any) => {
-        const teacher_data = item.data();
-        if (teacher_data.role === "teacher" && user.college_id===teacher_data.college_id) {
-          newEnteries.push({ ...item.data(), id: item.id });
-        }
-      });
-      setData(newEnteries);
-      setSearchedData(newEnteries);
-      setloaded(true);
-    };
-    return () => {
+      if(user.college_id){
+
+        const response: any = await getDocs(collection(db, "users"));
+        const newEnteries: any = [];
+        response.docs.forEach((item: any) => {
+          const teacher_data = item.data();
+          if (teacher_data.role === "teacher" && user.college_id===teacher_data.college_id) {
+            newEnteries.push({ ...item.data(), id: item.id });
+          }
+        });
+        setData(newEnteries);
+        setSearchedData(newEnteries);
+        setloaded(true);
+      };
+    }
       cleanUp();
-    };
-  }, []);
+  }, [user.college_id]);
   const onChangeHandler = (e:any) => {
     setSearchedData(data.filter((item:any)=>item.name.toLocaleLowerCase().includes(e.target.value.toLocaleLowerCase())));
   };

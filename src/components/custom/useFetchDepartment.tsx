@@ -8,13 +8,14 @@ const useFetchDepartment = (id:string) => {
     const cleanUp = async () => {
         const response = await getDoc(doc(db,"departments",id));
         const data = response.data();
+        console.log(data);
         if(data?.departments){
             setDepartments(data.departments);
         }
         setLoaded(true);
     };
-    return ()=>{cleanUp()};
-  },[]);
+    cleanUp();
+  },[id]);
   return [departments,setDepartments,loaded,setLoaded];
 }
 

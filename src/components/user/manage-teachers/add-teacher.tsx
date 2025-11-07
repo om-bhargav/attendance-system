@@ -15,14 +15,15 @@ const addTeacher = () => {
   const [loaded,setLoaded] = useState<Boolean>(false);
   useEffect(() => {
     const cleanUp = async () => {
-      const deps: any = (await getDoc(doc(db, "departments", user.id))).data();
-      setDepartments(deps.departments);
-      setLoaded(true);
+      if(user.id){
+
+        const deps: any = (await getDoc(doc(db, "departments", user.id))).data();
+        setDepartments(deps.departments);
+        setLoaded(true);
+      }
     };
-    return () => {
       cleanUp();
-    };
-  }, []);
+  }, [user.id]);
   const addTeacher = async (form_data: any) => {
     const { name, email, phone, group } = Object.fromEntries(form_data);
     const password = v4();

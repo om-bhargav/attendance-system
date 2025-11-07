@@ -12,8 +12,8 @@ const useFetchHolidays = (id:string) => {
           setIsLoaded(true);
         }
       };
-      return ()=>{cleanUp()};
-  },[]);
+      cleanUp()
+  },[id]);
   return [holidays,setHolidays,isLoaded,setIsLoaded];
 }
 
