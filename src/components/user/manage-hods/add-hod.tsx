@@ -41,7 +41,7 @@ const addHOD = () => {
         password,
         college_id: user.college_id,
         role: "hod",
-      attendance:{}
+      attendance:[]
       });
       await signOut(secondaryAuth);
     } catch (err: any) {
