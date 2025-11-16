@@ -41,7 +41,7 @@ const addTeacher = () => {
         password,
         college_id: user.college_id,
         role: "teacher",
-      attendance:{}
+      attendance:[]
       });
       await signOut(secondaryAuth);
     } catch (err: any) {
