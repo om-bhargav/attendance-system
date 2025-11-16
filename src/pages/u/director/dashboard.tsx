@@ -27,7 +27,7 @@ function dashboard() {
                 <div className='flex gap-2 items-center'>Manage Teachers <FaArrowRight/></div>
               </div>
               </Link>
-              <Link className='grid' to="/manage-teachers">
+              <Link className='grid' to="/manage-students">
               <div className='duration-200 rounded hover:text-white flex justify-center items-center hover:bg-orange-500 border p-3'>
                 <div className='flex gap-2 items-center'>Manage Students <FaArrowRight/></div>
               </div>
