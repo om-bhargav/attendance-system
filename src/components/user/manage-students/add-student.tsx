@@ -42,7 +42,7 @@ const addStudent = () => {
       password,
       college_id:user.college_id,
       role:"student",
-      attendance:{}
+      attendance:"{}"
     });
     await signOut(secondaryAuth);
   }
