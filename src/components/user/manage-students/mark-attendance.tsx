@@ -58,7 +58,7 @@ const markAttendance = () => {
         <div className="grid md:grid-cols-2 gap-5 w-full my-5">
           <select
             value={group}
-            onChange={(e) => {setUsersLoaded(false);setGroup(e.target.value);const new_students = users.filter((item:any)=>item.group===group);setUsers(new_students);setUsersLoaded(true);}}
+            onChange={(e) => {setUsersLoaded(false);setGroup(e.target.value);const new_students = users.filter((item:any)=>item.group===e.target.value);setUsers(new_students);setUsersLoaded(true);}}
             className="outline-none p-3 border border-gray-500 rounded"
           >
               <option value="default">Select Group</option>
