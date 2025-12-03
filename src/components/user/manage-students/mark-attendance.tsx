@@ -13,6 +13,7 @@ const markAttendance = () => {
     useFetchUsers("student");
   const [departments, setDepartments, departmentsLoaded, setDepartmentsLoaded] =
     useFetchDepartments(user.college_id);
+  const [displayedStudents,setDisplayedStudents] = useState(users);
   const [group, setGroup] = useState("default");
   const [subject, setSubject] = useState("default");
   const [subjets,setSubjects] = useState([]);
@@ -51,15 +52,16 @@ const markAttendance = () => {
           <select
             value={group}
             onChange={(e) => {
-              const new_students = users.filter((item:any)=>item.group===e.target.value);setUsers(new_students);
-                console.log(new_students);
+              setLoaded(false);
+              const new_students = users.filter((item:any)=>item.group===e.target.value);setDisplayedStudents(new_students);
                 if(e.target.value!=="default"){
                 const filtered_data = departments.filter((item:any)=>item.id===e.target.value)[0];
                   setSubjects(filtered_data.subjects)
                 }else{
                   setSubjects([]);
                 }
-              setGroup(e.target.value)
+              setGroup(e.target.value);
+              setLoaded(true);
             }}
             className="outline-none p-3 border border-gray-500 rounded"
           >
@@ -86,7 +88,7 @@ const markAttendance = () => {
         {((group !== "default" && subject !== "default")) ? (
           <form className="grid w-full gap-7" action={attendanceHandler}>
 
-          <MarkAttendanceTable data={users} cols={["name"]} />
+          <MarkAttendanceTable data={displayedStudents} cols={["name"]} />
           <SubmitButton text="Mark Attendance"/>
           </form>
         ):<div className="text-center text-lg font-semibold">Select Options To View Students Data</div>}
