@@ -52,7 +52,6 @@ const markAttendance = () => {
           <select
             value={group}
             onChange={(e) => {
-              setLoaded(false);
               const new_students = users.filter((item:any)=>item.group===e.target.value);setDisplayedStudents(new_students);
                 if(e.target.value!=="default"){
                 const filtered_data = departments.filter((item:any)=>item.id===e.target.value)[0];
@@ -61,7 +60,6 @@ const markAttendance = () => {
                   setSubjects([]);
                 }
               setGroup(e.target.value);
-              setLoaded(true);
             }}
             className="outline-none p-3 border border-gray-500 rounded"
           >
