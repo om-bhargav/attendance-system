@@ -25,7 +25,7 @@ const markAttendance = () => {
     const dep = response.departments.findIndex((item:any)=>item.id===group);
     const sub = response.departments[dep].subjects.findIndex((item:any)=>item.id===subject);
     response.departments[dep].subjects[sub].attendance.push(date);
-    await setDoc(doc(db,"departments",user.id),response);
+    await setDoc(doc(db,"departments",user.college_id),response);
     for(let i=0;i<size;i++){
       const id = attendance_data[`student-${i}-id`] as string;
       const present = attendance_data[`student-${i}-status`];
