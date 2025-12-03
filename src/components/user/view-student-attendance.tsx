@@ -23,6 +23,7 @@ const viewStudentAttendance = ({id,user,loaded}:any) => {
     },[user.group,departments]);
     const showAttendance = () => {
         if(clicked===false) setClicked(true);
+        console.log(user);
         const filtered_data = departments.filter((item:any)=>item.id===user.group)[0];
         console.log(filtered_data);
         const sub = filtered_data.subjects.filter((item:any)=>item.id===subject)[0];
