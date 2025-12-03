@@ -17,7 +17,7 @@ const addTeacher = () => {
     const cleanUp = async () => {
       if(user.id){
 
-        const deps: any = (await getDoc(doc(db, "departments", user.id))).data();
+        const deps: any = (await getDoc(doc(db, "departments", user.college_id))).data();
         setDepartments(deps.departments);
         setLoaded(true);
       }
