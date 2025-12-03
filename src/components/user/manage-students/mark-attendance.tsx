@@ -19,6 +19,8 @@ const markAttendance = () => {
   useEffect(()=>{
     if(group!=="default"){
       const filtered_data = departments.filter((item:any)=>item.id===group)[0];
+      const new_students = users.filter((item:any)=>item.group===group);
+      setUsers(users);
       setSubjects(filtered_data.subjects)
     }else{
       setSubjects([]);
