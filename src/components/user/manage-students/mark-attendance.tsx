@@ -16,14 +16,6 @@ const markAttendance = () => {
   const [group, setGroup] = useState("default");
   const [subject, setSubject] = useState("default");
   const [subjets,setSubjects] = useState([]);
-  useEffect(()=>{
-    if(group!=="default"){
-      const filtered_data = departments.filter((item:any)=>item.id===group)[0];
-      setSubjects(filtered_data.subjects)
-    }else{
-      setSubjects([]);
-    }
-  },[group]);
   const attendanceHandler = async (form_data:FormData) => {
     const attendance_data = Object.fromEntries(form_data);
     const size = Object.keys(attendance_data).length/2;
@@ -58,7 +50,16 @@ const markAttendance = () => {
         <div className="grid md:grid-cols-2 gap-5 w-full my-5">
           <select
             value={group}
-            onChange={(e) => {setUsersLoaded(false);setGroup(e.target.value);const new_students = users.filter((item:any)=>item.group===e.target.value);setUsers(new_students);setUsersLoaded(true);}}
+            onChange={(e) => {
+                const new_students = users.filter((item:any)=>item.group===e.target.value);setUsers(new_students);
+                if(e.target.value!=="default"){
+                const filtered_data = departments.filter((item:any)=>item.id===e.target.value)[0];
+                  setSubjects(filtered_data.subjects)
+                }else{
+                  setSubjects([]);
+                }
+              setGroup(e.target.value)
+            }}
             className="outline-none p-3 border border-gray-500 rounded"
           >
               <option value="default">Select Group</option>
@@ -70,7 +71,7 @@ const markAttendance = () => {
           </select>
           <select
             value={subject}
-            onChange={(e) => setSubject(e.target.value)}
+            onChange={(e) =>{setSubject(e.target.value)}}
             className="outline-none p-3 border border-gray-500 rounded"
           >
             <option value="default">Select Subject</option>
