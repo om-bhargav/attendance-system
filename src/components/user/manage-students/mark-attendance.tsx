@@ -62,7 +62,7 @@ const markAttendance = () => {
           <select
             value={group}
             onChange={(e) => {
-                
+              console.log(e.target.value);
               setGroup(e.target.value)
             }}
             className="outline-none p-3 border border-gray-500 rounded"
