@@ -20,7 +20,7 @@ const markAttendance = () => {
     if(group!=="default"){
       const filtered_data = departments.filter((item:any)=>item.id===group)[0];
       const new_students = users.filter((item:any)=>item.group===group);
-      setUsers(users);
+      setUsers(new_students);
       setSubjects(filtered_data.subjects)
     }else{
       setSubjects([]);
