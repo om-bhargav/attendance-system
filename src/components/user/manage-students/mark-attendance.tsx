@@ -22,25 +22,26 @@ const markAttendance = () => {
     const size = Object.keys(attendance_data).length/2;
     const date = (new Date()).toLocaleDateString().replaceAll("/","-");
     let response:any = (await getDoc(doc(db,"departments",user.id))).data();
-    const dep = response.departments.findIndex((item:any)=>item.id===group);
-    const sub = response.departments[dep].subjects.findIndex((item:any)=>item.id===subject);
-    response.departments[dep].subjects[sub].attendance.push(date);
-    await setDoc(doc(db,"departments",user.id),response);
-    for(let i=0;i<size;i++){
-      const id = attendance_data[`student-${i}-id`] as string;
-      const present = attendance_data[`student-${i}-status`];
-      const user_data:any = (await getDoc(doc(db,"users",id))).data();
-      let currentAttendance = user_data["attendance"] ?? {};
-      if(present==="present"){
-        if(currentAttendance[subject]===undefined){
-          currentAttendance[subject] = [];
-        }
-        currentAttendance[subject].push(date);
-        await setDoc(doc(db,"users",id),{
-          attendance:JSON.stringify(currentAttendance)
-        },{merge:true});
-      }
-    }
+    console.log(response);
+    // const dep = response.departments.findIndex((item:any)=>item.id===group);
+    // const sub = response.departments[dep].subjects.findIndex((item:any)=>item.id===subject);
+    // response.departments[dep].subjects[sub].attendance.push(date);
+    // await setDoc(doc(db,"departments",user.id),response);
+    // for(let i=0;i<size;i++){
+    //   const id = attendance_data[`student-${i}-id`] as string;
+    //   const present = attendance_data[`student-${i}-status`];
+    //   const user_data:any = (await getDoc(doc(db,"users",id))).data();
+    //   let currentAttendance = user_data["attendance"] ?? {};
+    //   if(present==="present"){
+    //     if(currentAttendance[subject]===undefined){
+    //       currentAttendance[subject] = [];
+    //     }
+    //     currentAttendance[subject].push(date);
+    //     await setDoc(doc(db,"users",id),{
+    //       attendance:JSON.stringify(currentAttendance)
+    //     },{merge:true});
+    //   }
+    // }
     toast.success("Attendance Marked Successfully!");
   };
   return (
