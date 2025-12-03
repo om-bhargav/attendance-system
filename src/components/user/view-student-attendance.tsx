@@ -63,9 +63,9 @@ const viewStudentAttendance = ({id,user,loaded}:any) => {
       }
       {
         clicked && subject!=="default" && <div className='w-full grid md:grid-cols-3 text-center gap-5 my-5'>
-        <div className='text-lg'><div className='font-semibold'>Lectures Delivered:</div><div>{attendanceAnalysis.lectures_delivered}</div></div>
+        {/* <div className='text-lg'><div className='font-semibold'>Lectures Delivered:</div><div>{attendanceAnalysis.lectures_delivered}</div></div> */}
         <div className='text-lg'><div className='font-semibold'>Lectures Attended:</div><div>{attendanceAnalysis.attended}</div></div>
-        <div className='text-lg'><div className='font-semibold'>Attendance Percentage:</div><div>{attendanceAnalysis.percentage}%</div></div>
+        {/* <div className='text-lg'><div className='font-semibold'>Attendance Percentage:</div><div>{attendanceAnalysis.percentage}%</div></div> */}
       </div>
     }
     </>)
