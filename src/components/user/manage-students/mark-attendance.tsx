@@ -52,6 +52,7 @@ const markAttendance = () => {
             value={group}
             onChange={(e) => {
                 const new_students = users.filter((item:any)=>item.group===e.target.value);setUsers(new_students);
+                console.log(new_students);
                 if(e.target.value!=="default"){
                 const filtered_data = departments.filter((item:any)=>item.id===e.target.value)[0];
                   setSubjects(filtered_data.subjects)
