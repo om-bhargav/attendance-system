@@ -16,6 +16,17 @@ const markAttendance = () => {
   const [group, setGroup] = useState("default");
   const [subject, setSubject] = useState("default");
   const [subjets,setSubjects] = useState([]);
+  useEffect(()=>{
+    console.log(group);
+    const new_students = users.filter((item:any)=>item.group===e.target.value);setUsers(new_students);
+                console.log(new_students);
+                if(e.target.value!=="default"){
+                const filtered_data = departments.filter((item:any)=>item.id===e.target.value)[0];
+                  setSubjects(filtered_data.subjects)
+                }else{
+                  setSubjects([]);
+                }
+  },[group,setGroup]);
   const attendanceHandler = async (form_data:FormData) => {
     const attendance_data = Object.fromEntries(form_data);
     const size = Object.keys(attendance_data).length/2;
@@ -51,14 +62,7 @@ const markAttendance = () => {
           <select
             value={group}
             onChange={(e) => {
-                const new_students = users.filter((item:any)=>item.group===e.target.value);setUsers(new_students);
-                console.log(new_students);
-                if(e.target.value!=="default"){
-                const filtered_data = departments.filter((item:any)=>item.id===e.target.value)[0];
-                  setSubjects(filtered_data.subjects)
-                }else{
-                  setSubjects([]);
-                }
+                
               setGroup(e.target.value)
             }}
             className="outline-none p-3 border border-gray-500 rounded"
