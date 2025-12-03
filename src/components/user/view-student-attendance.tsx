@@ -24,7 +24,9 @@ const viewStudentAttendance = ({id,user,loaded}:any) => {
     const showAttendance = () => {
         if(clicked===false) setClicked(true);
         const filtered_data = departments.filter((item:any)=>item.id===user.group)[0];
+        console.log(filtered_data);
         const sub = filtered_data.subjects.filter((item:any)=>item.id===subject)[0];
+        console.log(sub);
         const aten = sub?.attendance?.length || 0;
         const attendance = JSON.parse(user.attendance)[subject];
         const attendance_length = attendance?.length || 0;
