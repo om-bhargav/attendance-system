@@ -19,8 +19,6 @@ const markAttendance = () => {
   useEffect(()=>{
     if(group!=="default"){
       const filtered_data = departments.filter((item:any)=>item.id===group)[0];
-      const new_students = users.filter((item:any)=>item.group===group);
-      setUsers(new_students);
       setSubjects(filtered_data.subjects)
     }else{
       setSubjects([]);
@@ -60,7 +58,7 @@ const markAttendance = () => {
         <div className="grid md:grid-cols-2 gap-5 w-full my-5">
           <select
             value={group}
-            onChange={(e) => setGroup(e.target.value)}
+            onChange={(e) => {setUsersLoaded(false);setGroup(e.target.value);const new_students = users.filter((item:any)=>item.group===group);setUsers(new_students);setUsersLoaded(true);}}
             className="outline-none p-3 border border-gray-500 rounded"
           >
               <option value="default">Select Group</option>
