@@ -6,7 +6,9 @@ import useFetchUsers from "../../custom/useFetchUsers";
 import MarkAttendanceTable from "../../MarkAttendanceTable";
 import SectionLoading from "../../SectionLoading";
 import SubmitButton from "../../SubmitButton";
+import { ContextUser } from "../../../context/userContext";
 const markAttendance = () => {
+  const { user }: any = ContextUser();
   const [users, setUsers, usersLoaded, setUsersLoaded] =useFetchUsers("hod");
     const attendanceHandler = async (form_data:FormData) => {
       const attendance_data = Object.fromEntries(form_data);
