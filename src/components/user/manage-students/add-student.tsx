@@ -83,9 +83,10 @@ const addStudent = () => {
           <label className="text-lg font-semibold">
             Enter Phone No. Of Student: 
           </label>
-          <input
+          <input            
             type="text"
             name="phone"
+            maxlength="10"
             required
             placeholder="Student Contact No."
             />
