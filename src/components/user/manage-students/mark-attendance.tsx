@@ -30,7 +30,7 @@ const markAttendance = () => {
       const id = attendance_data[`student-${i}-id`] as string;
       const present = attendance_data[`student-${i}-status`];
       const user_data:any = (await getDoc(doc(db,"users",id))).data();
-      let currentAttendance = user_data["attendance"] ?? {};
+      let currentAttendance = JSON.parse(user_data["attendance"]) ?? {};
       if(present==="present"){
         if(currentAttendance[subject]===undefined){
           currentAttendance[subject] = [];
