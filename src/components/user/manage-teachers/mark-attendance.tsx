@@ -1,4 +1,5 @@
 import { arrayUnion, doc, setDoc } from "firebase/firestore";
+import { useEffect } from "react";
 import toast from "react-hot-toast";
 import { db } from "../../../firebase";
 import useFetchUsers from "../../custom/useFetchUsers";
@@ -22,6 +23,14 @@ const markAttendance = () => {
       }
           toast.success("Attendance Marked Successfully!");
     };
+useEffect(()=>{
+if(users.length>0){
+const newu = users.filter((item:any)=> item.college_id===user.college_id);
+setUsers(newu);
+}
+}
+
+,[users]);
   return (
     <>
       <title>Mark Teachers Attendance</title>
