@@ -80,6 +80,7 @@ const addHOD = () => {
           <input
             type="text"
             name="phone"
+            maxlength="10"
             required
             placeholder="HOD Contact No."
             />
