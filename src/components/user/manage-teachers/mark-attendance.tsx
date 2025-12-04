@@ -5,8 +5,10 @@ import { db } from "../../../firebase";
 import useFetchUsers from "../../custom/useFetchUsers";
 import MarkAttendanceTable from "../../MarkAttendanceTable";
 import SectionLoading from "../../SectionLoading";
+import { ContextUser } from "../../../context/userContext";
 import SubmitButton from "../../SubmitButton";
 const markAttendance = () => {
+  const { user }: any = ContextUser();
   const [users, setUsers, usersLoaded, setUsersLoaded] =useFetchUsers("teacher");
     const attendanceHandler = async (form_data:FormData) => {
       const attendance_data = Object.fromEntries(form_data);
