@@ -26,13 +26,6 @@ const markAttendance = () => {
           toast.success("Attendance Marked Successfully!");
     };
 
-useEffect(()=>{
-if(users){
-const newu = users.filter((item:any)=> item.college_id===user.college_id);
-setUsers(newu);
-}
-}
-,[users]);
   return (
     <>
       <title>Mark HOD's Attendance</title>
