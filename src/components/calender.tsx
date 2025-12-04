@@ -64,7 +64,7 @@ const calender = ({ month_index = new Date().getMonth() , buttonEvent = (date:st
           key={index}
           data-sid={(first_day_of_month+index)}
           onClick={()=>buttonEvent((month_index+1)+"-"+(index+1)+"-"+current.getFullYear())}
-          className={`${holidays!==undefined && holidays.includes((index+1)+"-"+(month_index+1)+"-"+current.getFullYear())? "bg-green-500! cursor-pointer" :[0,6].includes((first_day_of_month+index)%7)?"bg-gray-500! cursor-not-allowed pointer-events-none":"cursor-pointer bg-red-800!"} text-white p-2 text-center rounded flex justify-center`}
+          className={`${holidays!==undefined && (holidays.includes((index+1)+"-"+(month_index+1)+"-"+current.getFullYear()) || holidays.includes((month_index+1)+"-"+(index+1)+"-"+current.getFullYear()))? "bg-green-500! cursor-pointer" :[0,6].includes((first_day_of_month+index)%7)?"bg-gray-500! cursor-not-allowed pointer-events-none":"cursor-pointer bg-red-800!"} text-white p-2 text-center rounded flex justify-center`}
           >
             {index + 1}
           </div>
