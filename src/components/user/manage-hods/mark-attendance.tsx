@@ -27,12 +27,11 @@ const markAttendance = () => {
     };
 
 useEffect(()=>{
-if(users.length>0){
+if(users){
 const newu = users.filter((item:any)=> item.college_id===user.college_id);
 setUsers(newu);
 }
 }
-
 ,[users]);
   return (
     <>
