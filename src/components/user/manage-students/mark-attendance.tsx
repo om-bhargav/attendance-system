@@ -52,7 +52,7 @@ const markAttendance = () => {
           <select
             value={group}
             onChange={(e) => {
-              const new_students = users.filter((item:any)=>item.group===e.target.value);setDisplayedStudents(new_students);
+              const new_students = users.filter((item:any)=>item.group===e.target.value && item.college_id===user.college_id);setDisplayedStudents(new_students);
                 if(e.target.value!=="default"){
                 const filtered_data = departments.filter((item:any)=>item.id===e.target.value)[0];
                   setSubjects(filtered_data.subjects)
