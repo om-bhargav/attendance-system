@@ -17,7 +17,7 @@ const calender = ({ month_index = new Date().getMonth() , buttonEvent = (date:st
   const current = new Date();
   const first_day_of_month = new Date(
     current.getFullYear(),
-    month_index+1,
+    month_index,
     1
   ).getDay();
   const days_of_month = new Date(
